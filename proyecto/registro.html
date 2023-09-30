@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+    
+</head>
+<body>
+    <h1 id="titulo">Registrar Sitio</h1>
+    <div id="registro">
+        <label for="pais">País </label>
+        <input list="paises" id="pais"><br>
+            <datalist id="paises">
+                <option value="Guatemala"></option>
+                <option value="Belice"></option>
+                <option value="El Salvador"></option>
+                <option value="Honduras"></option>
+                <option value="Nicaragua"></option>
+                <option value="Costa Rica"></option>
+                <option value="Panamá"></option>
+            </datalist>
+
+        <label for="nombre">Nombre </label>
+        <input type="text" id="nombre"><br>
+
+        <label for="horario">Horario </label>
+        <input type="text" id="horario"><br>
+
+        <label for="descripcion">Descripción </label>
+        <input type="text" id="descripcion">
+        <button onclick="guardar()" id="botonguardar">Guardar</button>
+    </div>
+
+
+    <table border = "1" id="tabla">
+        <tr><th>Fila</th><th>Pais</th><th>Nombre</th><th>Horario</th><th>Descripción</th></tr>
+    </table>
+    <div id="cont_editar">
+        <button id="botoneliminar" onclick="eliminar()">Eliminar</button>
+        <button id="botonmodificar" onclick="modificar()">Modificar</button>
+    </div>
+    <script>
+        localStorage.clear();
+        
+        let codigo = 1;
+
+        function guardar(){
+            
+            let pais = document.getElementById("pais").value;
+            let nombre = document.getElementById("nombre").value;
+            let horario = document.getElementById("horario").value;
+            let descripcion = document.getElementById("descripcion").value;
+            let likes = 0;
+
+            let sitio = [pais, nombre, horario, descripcion, likes];
+
+            localStorage.setItem(codigo, JSON.stringify(sitio));
+            let datos = JSON.parse(localStorage.getItem(codigo));
+
+            var tabla = document.getElementById("tabla");
+            var fila = document.createElement("tr");
+            var celda = document.createElement("td");
+           
+            fila.id = codigo;
+
+            celda.textContent = codigo;
+            fila.appendChild(celda);
+
+            celda = document.createElement("td");
+            celda.textContent = datos[0];
+            celda.id = codigo+"pais";
+            fila.appendChild(celda);
+
+            celda = document.createElement("td");
+            celda.textContent = datos[1];
+            celda.id = codigo+"nombre";
+            fila.appendChild(celda);
+
+            celda = document.createElement("td");
+            celda.textContent = datos[2];
+            celda.id = codigo+"horario";
+            fila.appendChild(celda);
+
+            celda = document.createElement("td");
+            celda.textContent = datos[3];
+            celda.id = codigo+"descripcion";
+            fila.appendChild(celda);
+
+            celda = document.createElement("td");
+            
+
+
+            tabla.appendChild(fila);
+
+            function modificar(){
+
+            }
+
+            codigo++;
+        }
+
+        function modificar(){
+            let fil = prompt("Ingrese el numero de Fila que desea modificar:");
+            let pai = prompt("Pais:");
+            let nom = prompt("Nombre:");
+            let hor = prompt("Horario:");
+            let des = prompt("Descripcion:");
+            let data = [pai, nom, hor, des, 0];
+            localStorage.setItem(fil, JSON.stringify(data));
+            
+        
+
+
+        }
+
+        function eliminar(){
+            let fil = prompt("Ingrese el numero de Fila que desea eliminar:");
+            localStorage.removeItem(fil);
+            let tabla = document.getElementById("tabla");
+            let fila = document.getElementById(fil);
+            tabla.removeChild(fila);
+        }
+    </script>
+</body>
+</html>

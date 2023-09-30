@@ -1,0 +1,130 @@
+body{
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: rgb(196, 255, 235);
+}
+
+/* index */
+
+#titulo {
+    margin: auto;
+    text-align: center;
+}
+
+#botones {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    margin: 100px 300px;
+}
+
+#botones a button{
+    border: 4px solid black;
+    font-size: 25px;
+    border-radius: 10px;
+    width: 250px;
+    height: 100px;
+    transition: all 0.25s;
+}
+
+#botonregistro {
+    background-color: rgb(129, 188, 255);
+}
+
+#botonmostrar {
+    background-color: rgb(41, 187, 28);
+}
+
+#botones a button:hover{
+    cursor: pointer;
+    background-color: rgba(49, 231, 13, 0.342);
+    width: 255px;
+    height: 105px
+}
+
+/* Registro */
+
+#registro {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    width: 500px;
+    height: auto;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+#registro label {
+    font-size: 20px;
+    text-align: center;
+}
+
+#registro input {
+    width: 300px;
+    margin: 0 auto 10px;
+    border: 2px solid rgb(48, 44, 44);
+    border-radius: 2px;
+}
+
+#botonguardar {
+    border: 4px solid black;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 125px;
+    height: 50px;
+    transition: all 0.25s;
+    margin: 15px auto 0;
+    background-color: aquamarine;
+}
+
+#botonguardar:hover {
+    cursor: pointer;
+    background-color: aliceblue;
+}
+
+table {
+    margin: 50px auto;
+}
+/* mostrar */
+
+#contenido {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 50px;
+    width: auto;
+    height: auto;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+#contenido div {
+    width: 300px;
+    height: auto;
+    background-color: aliceblue;
+    border: 4px solid black;
+    border-radius: 15px;
+    margin: 10px 20px;
+}
+
+#contenido div h2 {
+    text-align: center;
+    font-size: 30px;
+}
+
+#contenido div h3 {
+    text-align: left;
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+#contenido div p {
+    text-align: left;
+    font-size: 15px;
+    margin: 0 10px;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body onload="cargar()">
+    <script>
+        
+        let llaves = Object.keys(localStorage);
+        let datos = [];
+       
+
+        function cargar(){
+            let contenido = document.getElementById("contenido");
+
+            for (let i = 0; i < llaves.length; i++){
+                datos[i] = JSON.parse(localStorage.getItem(llaves[i]));
+
+                let div = document.createElement("div");
+                let nombre = document.createElement("h2");
+                let pais = document.createElement("h3");
+                let horario = document.createElement("p");
+                let descripcion = document.createElement("p");
+                let like = document.createElement("button");
+
+                nombre.textContent = datos[i][1];
+                pais.textContent = datos[i][0];
+                horario.textContent = "Horario: " + datos[i][2];
+                descripcion.textContent = "Descripción: " + datos[i][3];
+                like.textContent = "Me gusta";
+
+                div.appendChild(nombre);
+                div.appendChild(pais);
+                div.appendChild(horario);
+                div.appendChild(descripcion);
+                div.appendChild(like);
+
+                contenido.appendChild(div);
+
+            }
+            
+        }
+    </script>
+    <div id="contenido">
+        
+    </div>
+</body>
+</html>
